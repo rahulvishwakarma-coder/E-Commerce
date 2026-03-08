@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/hooks/useAuth";
+import { useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,7 +17,7 @@ const SEMESTERS = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th"];
 const CONDITIONS = ["New", "Like New", "Good", "Fair", "Poor"];
 
 export default function AddListing() {
-  const { user, loading: authLoading } = useAuth();
+  const { isLoaded: authLoaded, isSignedIn, user: clerkUser } = useUser();
   const router = useRouter();
   const { toast } = useToast();
   const [step, setStep] = useState(1);
@@ -37,10 +37,10 @@ export default function AddListing() {
   });
 
   useEffect(() => {
-    if (!authLoading && !user) {
-      router.push("/auth");
+    if (authLoaded && !isSignedIn) {
+      router.push("/sign-in");
     }
-  }, [user, authLoading, router]);
+  }, [isSignedIn, authLoaded, router]);
 
   const updateForm = (field: string, value: any) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -55,7 +55,7 @@ export default function AddListing() {
   };
 
   const handleSubmit = async () => {
-    if (!user) return;
+    if (!isSignedIn || !clerkUser) return;
     setLoading(true);
 
     try {
@@ -71,12 +71,12 @@ export default function AddListing() {
         formData.append("image", imageFile);
       }
 
-      const token = localStorage.getItem("token");
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
       const res = await fetch(`${apiUrl}/books`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
+          // Use Clerk ID for identification in our updated backend middleware
+          "x-clerk-id": clerkUser.id,
         },
         body: formData,
       });
@@ -92,8 +92,13 @@ export default function AddListing() {
     }
   };
 
-  if (authLoading || !user) {
-    return <div className="flex h-screen items-center justify-center">Loading...</div>;
+  if (!authLoaded || (authLoaded && !isSignedIn)) {
+    return (
+      <div className="flex h-[80vh] flex-col items-center justify-center gap-4">
+        <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-primary"></div>
+        <p className="text-muted-foreground font-medium">Authenticating...</p>
+      </div>
+    );
   }
 
   const totalSteps = 3;

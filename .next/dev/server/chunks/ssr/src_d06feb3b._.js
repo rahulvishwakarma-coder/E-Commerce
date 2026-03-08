@@ -327,7 +327,7 @@ __turbopack_context__.s([
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useAuth.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@clerk/shared/dist/runtime/react/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/input.tsx [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$label$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/label.tsx [app-ssr] (ecmascript)");
@@ -379,7 +379,7 @@ const CONDITIONS = [
     "Poor"
 ];
 function AddListing() {
-    const { user, loading: authLoading } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { isLoaded: authLoaded, isSignedIn, user: clerkUser } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUser"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useToast"])();
     const [step, setStep] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(1);
@@ -397,12 +397,12 @@ function AddListing() {
         semester: ""
     });
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if (!authLoading && !user) {
-            router.push("/auth");
+        if (authLoaded && !isSignedIn) {
+            router.push("/sign-in");
         }
     }, [
-        user,
-        authLoading,
+        isSignedIn,
+        authLoaded,
         router
     ]);
     const updateForm = (field, value)=>{
@@ -419,7 +419,7 @@ function AddListing() {
         }
     };
     const handleSubmit = async ()=>{
-        if (!user) return;
+        if (!isSignedIn || !clerkUser) return;
         setLoading(true);
         try {
             const formData = new FormData();
@@ -433,12 +433,12 @@ function AddListing() {
             if (imageFile) {
                 formData.append("image", imageFile);
             }
-            const token = localStorage.getItem("token");
             const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
             const res = await fetch(`${apiUrl}/books`, {
                 method: "POST",
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    // Use Clerk ID for identification in our updated backend middleware
+                    "x-clerk-id": clerkUser.id
                 },
                 body: formData
             });
@@ -458,14 +458,30 @@ function AddListing() {
             setLoading(false);
         }
     };
-    if (authLoading || !user) {
+    if (!authLoaded || authLoaded && !isSignedIn) {
         return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex h-screen items-center justify-center",
-            children: "Loading..."
-        }, void 0, false, {
+            className: "flex h-[80vh] flex-col items-center justify-center gap-4",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "h-8 w-8 animate-spin rounded-full border-b-2 border-primary"
+                }, void 0, false, {
+                    fileName: "[project]/src/app/add-listing/page.tsx",
+                    lineNumber: 98,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-muted-foreground font-medium",
+                    children: "Authenticating..."
+                }, void 0, false, {
+                    fileName: "[project]/src/app/add-listing/page.tsx",
+                    lineNumber: 99,
+                    columnNumber: 9
+                }, this)
+            ]
+        }, void 0, true, {
             fileName: "[project]/src/app/add-listing/page.tsx",
-            lineNumber: 96,
-            columnNumber: 12
+            lineNumber: 97,
+            columnNumber: 7
         }, this);
     }
     const totalSteps = 3;
@@ -480,7 +496,7 @@ function AddListing() {
                         children: "Sell Your Book"
                     }, void 0, false, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 104,
+                        lineNumber: 109,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -488,13 +504,13 @@ function AddListing() {
                         children: "Fill in the details to reach buyers on campus."
                     }, void 0, false, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 105,
+                        lineNumber: 110,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/add-listing/page.tsx",
-                lineNumber: 103,
+                lineNumber: 108,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -516,7 +532,7 @@ function AddListing() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 116,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -524,13 +540,13 @@ function AddListing() {
                                         children: step === 1 ? "Details" : step === 2 ? "Pricing" : "Photo"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 112,
+                                        lineNumber: 117,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 110,
+                                lineNumber: 115,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -541,18 +557,18 @@ function AddListing() {
                                         className: `h-1.5 flex-1 rounded-full transition-colors ${i < step ? "bg-primary" : "bg-muted"}`
                                     }, i, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 123,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 116,
+                                lineNumber: 121,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 109,
+                        lineNumber: 114,
                         columnNumber: 9
                     }, this),
                     step === 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -566,7 +582,7 @@ function AddListing() {
                                         children: "Book Title"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 131,
+                                        lineNumber: 136,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -577,13 +593,13 @@ function AddListing() {
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 132,
+                                        lineNumber: 137,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 130,
+                                lineNumber: 135,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -594,7 +610,7 @@ function AddListing() {
                                         children: "Author"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 146,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -605,13 +621,13 @@ function AddListing() {
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 142,
+                                        lineNumber: 147,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 140,
+                                lineNumber: 145,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -625,7 +641,7 @@ function AddListing() {
                                                 children: "Branch"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 152,
+                                                lineNumber: 157,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -638,12 +654,12 @@ function AddListing() {
                                                             placeholder: "Select Branch"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/add-listing/page.tsx",
-                                                            lineNumber: 154,
+                                                            lineNumber: 159,
                                                             columnNumber: 57
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 159,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -652,24 +668,24 @@ function AddListing() {
                                                                 children: b
                                                             }, b, false, {
                                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                                lineNumber: 156,
+                                                                lineNumber: 161,
                                                                 columnNumber: 42
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 155,
+                                                        lineNumber: 160,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 153,
+                                                lineNumber: 158,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 151,
+                                        lineNumber: 156,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -680,7 +696,7 @@ function AddListing() {
                                                 children: "Semester"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 166,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -693,12 +709,12 @@ function AddListing() {
                                                             placeholder: "Select Sem"
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/app/add-listing/page.tsx",
-                                                            lineNumber: 163,
+                                                            lineNumber: 168,
                                                             columnNumber: 57
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 163,
+                                                        lineNumber: 168,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -707,30 +723,30 @@ function AddListing() {
                                                                 children: s
                                                             }, s, false, {
                                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                                lineNumber: 165,
+                                                                lineNumber: 170,
                                                                 columnNumber: 43
                                                             }, this))
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 164,
+                                                        lineNumber: 169,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 162,
+                                                lineNumber: 167,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 165,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 150,
+                                lineNumber: 155,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -743,19 +759,19 @@ function AddListing() {
                                         className: "h-4 w-4"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 180,
                                         columnNumber: 24
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 170,
+                                lineNumber: 175,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 129,
+                        lineNumber: 134,
                         columnNumber: 11
                     }, this),
                     step === 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -771,7 +787,7 @@ function AddListing() {
                                                 children: "Swap only?"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 184,
+                                                lineNumber: 189,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -779,13 +795,13 @@ function AddListing() {
                                                 children: "Toggle if you want to swap instead of sell"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 185,
+                                                lineNumber: 190,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 183,
+                                        lineNumber: 188,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$switch$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Switch"], {
@@ -793,13 +809,13 @@ function AddListing() {
                                         onCheckedChange: (v)=>updateForm("isSwap", v)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 187,
+                                        lineNumber: 192,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 182,
+                                lineNumber: 187,
                                 columnNumber: 13
                             }, this),
                             !form.isSwap && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -810,7 +826,7 @@ function AddListing() {
                                         children: "Price (₹)"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 191,
+                                        lineNumber: 196,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$input$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Input"], {
@@ -823,13 +839,13 @@ function AddListing() {
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 192,
+                                        lineNumber: 197,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 190,
+                                lineNumber: 195,
                                 columnNumber: 15
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -840,7 +856,7 @@ function AddListing() {
                                         children: "Condition"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 196,
+                                        lineNumber: 201,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Select"], {
@@ -851,12 +867,12 @@ function AddListing() {
                                                 className: "rounded-xl",
                                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectValue"], {}, void 0, false, {
                                                     fileName: "[project]/src/app/add-listing/page.tsx",
-                                                    lineNumber: 198,
+                                                    lineNumber: 203,
                                                     columnNumber: 55
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 198,
+                                                lineNumber: 203,
                                                 columnNumber: 17
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$select$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["SelectContent"], {
@@ -865,24 +881,24 @@ function AddListing() {
                                                         children: c
                                                     }, c, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 200,
+                                                        lineNumber: 205,
                                                         columnNumber: 42
                                                     }, this))
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 204,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 197,
+                                        lineNumber: 202,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 195,
+                                lineNumber: 200,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -893,7 +909,7 @@ function AddListing() {
                                         children: "Description (optional)"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 205,
+                                        lineNumber: 210,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$textarea$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Textarea"], {
@@ -903,13 +919,13 @@ function AddListing() {
                                         className: "rounded-xl"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 211,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 204,
+                                lineNumber: 209,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -924,14 +940,14 @@ function AddListing() {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 210,
+                                                lineNumber: 215,
                                                 columnNumber: 17
                                             }, this),
                                             " Back"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 209,
+                                        lineNumber: 214,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -944,25 +960,25 @@ function AddListing() {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 213,
+                                                lineNumber: 218,
                                                 columnNumber: 26
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 212,
+                                        lineNumber: 217,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 208,
+                                lineNumber: 213,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 181,
+                        lineNumber: 186,
                         columnNumber: 11
                     }, this),
                     step === 3 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -976,7 +992,7 @@ function AddListing() {
                                         children: "Book Photo"
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 222,
+                                        lineNumber: 227,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -988,7 +1004,7 @@ function AddListing() {
                                                 className: "max-h-48 rounded-lg object-contain"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 225,
+                                                lineNumber: 230,
                                                 columnNumber: 19
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                                                 children: [
@@ -996,7 +1012,7 @@ function AddListing() {
                                                         className: "mb-2 h-8 w-8 text-muted-foreground"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 228,
+                                                        lineNumber: 233,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1004,7 +1020,7 @@ function AddListing() {
                                                         children: "Click to upload book cover"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 234,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1012,7 +1028,7 @@ function AddListing() {
                                                         children: "JPG, PNG, WEBP supported"
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                                        lineNumber: 230,
+                                                        lineNumber: 235,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
@@ -1024,19 +1040,19 @@ function AddListing() {
                                                 onChange: handleImageChange
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 233,
+                                                lineNumber: 238,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 223,
+                                        lineNumber: 228,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 221,
+                                lineNumber: 226,
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1051,14 +1067,14 @@ function AddListing() {
                                                 className: "h-4 w-4"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                                lineNumber: 238,
+                                                lineNumber: 243,
                                                 columnNumber: 17
                                             }, this),
                                             " Back"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 237,
+                                        lineNumber: 242,
                                         columnNumber: 15
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1071,7 +1087,7 @@ function AddListing() {
                                                     className: "h-4 w-4"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/app/add-listing/page.tsx",
-                                                    lineNumber: 241,
+                                                    lineNumber: 246,
                                                     columnNumber: 45
                                                 }, this),
                                                 " Publish Listing"
@@ -1079,31 +1095,31 @@ function AddListing() {
                                         }, void 0, true)
                                     }, void 0, false, {
                                         fileName: "[project]/src/app/add-listing/page.tsx",
-                                        lineNumber: 240,
+                                        lineNumber: 245,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/app/add-listing/page.tsx",
-                                lineNumber: 236,
+                                lineNumber: 241,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/app/add-listing/page.tsx",
-                        lineNumber: 220,
+                        lineNumber: 225,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/add-listing/page.tsx",
-                lineNumber: 108,
+                lineNumber: 113,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/add-listing/page.tsx",
-        lineNumber: 102,
+        lineNumber: 107,
         columnNumber: 5
     }, this);
 }

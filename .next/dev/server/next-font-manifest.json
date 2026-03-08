@@ -1,6 +1,25 @@
 {
-  "app": {},
-  "appUsingSizeAdjust": false,
+  "app": {
+    "[project]/src/app/add-listing/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/src/app/auth/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/src/app/dashboard/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/src/app/marketplace/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/src/app/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ],
+    "[project]/src/app/sign-in/[[...sign-in]]/page": [
+      "static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2"
+    ]
+  },
+  "appUsingSizeAdjust": true,
   "pages": {},
   "pagesUsingSizeAdjust": false
 }

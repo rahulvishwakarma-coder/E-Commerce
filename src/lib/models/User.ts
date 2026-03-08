@@ -2,6 +2,7 @@ import mongoose, { Schema, Document } from "mongoose";
 import bcrypt from "bcryptjs";
 
 export interface IUser extends Document {
+  clerkId?: string;
   username: string;
   email: string;
   password?: string;
@@ -15,9 +16,10 @@ export interface IUser extends Document {
 
 const UserSchema: Schema = new Schema(
   {
+    clerkId: { type: String, unique: true, sparse: true },
     username: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
+    password: { type: String, required: false },
     avatar_url: { type: String, default: "" },
     bio: { type: String, default: "" },
     resetPasswordToken: { type: String },
@@ -28,10 +30,10 @@ const UserSchema: Schema = new Schema(
 
 // Hash password before saving
 UserSchema.pre<IUser>("save", async function () {
-  if (!this.isModified("password")) return;
+  if (!this.isModified("password") || !this.password) return;
   
   try {
-    this.password = await bcrypt.hash(this.password!, 10);
+    this.password = await bcrypt.hash(this.password, 10);
   } catch (error: any) {
     throw new Error(error);
   }
@@ -39,6 +41,7 @@ UserSchema.pre<IUser>("save", async function () {
 
 // Method to check password validity
 UserSchema.methods.comparePassword = async function (password: string): Promise<boolean> {
+  if (!this.password) return false;
   return bcrypt.compare(password, this.password);
 };
 

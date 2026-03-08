@@ -1,1 +1,9 @@
-{}
+{
+  "/add-listing/page": "app/add-listing/page.js",
+  "/api/auth/sync/route": "app/api/auth/sync/route.js",
+  "/auth/page": "app/auth/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/marketplace/page": "app/marketplace/page.js",
+  "/page": "app/page.js",
+  "/sign-in/[[...sign-in]]/page": "app/sign-in/[[...sign-in]]/page.js"
+}

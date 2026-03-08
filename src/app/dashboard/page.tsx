@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useAuth } from "@/hooks/useAuth";
+import { useUser, useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from "@/components/ui/badge";
@@ -16,30 +16,58 @@ interface Transaction { _id: string; type: string; status: string; created_at: s
 interface Notification { _id: string; title: string; message: string; is_read: boolean; created_at: string; }
 
 export default function Dashboard() {
-  const { user, loading: authLoading } = useAuth();
+  const { isLoaded: authLoaded, isSignedIn, user: clerkUser } = useUser();
+  const { getToken } = useAuth();
   const router = useRouter();
   const { toast } = useToast();
+  
+  const [mongoUser, setMongoUser] = useState<any>(null);
   const [myBooks, setMyBooks] = useState<Book[]>([]);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!authLoading && !user) {
-      router.push("/auth");
+    if (authLoaded && !isSignedIn) {
+      router.push("/sign-in");
       return;
     }
-    if (user) fetchData();
-  }, [user, authLoading, router]);
+    if (isSignedIn) {
+      fetchData();
+    }
+  }, [isSignedIn, authLoaded, router]);
 
   const fetchData = async () => {
-    const token = localStorage.getItem("token");
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+      
+      // Sync with the same backend endpoint used by SyncUser
+      const syncRes = await fetch(`${apiUrl}/auth/sync`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          clerkId: clerkUser?.id,
+          email: clerkUser?.primaryEmailAddress?.emailAddress,
+          username: clerkUser?.username || clerkUser?.firstName,
+          avatar_url: clerkUser?.imageUrl
+        })
+      });
+
+      if (!syncRes.ok) throw new Error("Failed to sync user");
+      const { user: mUser } = await syncRes.json();
+      setMongoUser(mUser);
+      
+      // We pass the clerkId as a temporary 'token' or header if the backend is updated to support it
+      // For now, we'll try to fetch using the clerkId in a header
+      const headers = { 
+        "Content-Type": "application/json",
+        "x-clerk-id": clerkUser?.id || "" 
+      };
+
       const [booksRes, txRes, notifRes] = await Promise.all([
-        fetch(`${apiUrl}/books/my`, { headers: { Authorization: `Bearer ${token}` } }),
-        fetch(`${apiUrl}/transactions`, { headers: { Authorization: `Bearer ${token}` } }),
-        fetch(`${apiUrl}/notifications`, { headers: { Authorization: `Bearer ${token}` } }),
+        fetch(`${apiUrl}/books/my`, { headers }),
+        fetch(`${apiUrl}/transactions`, { headers }),
+        fetch(`${apiUrl}/notifications`, { headers }),
       ]);
 
       if (booksRes.ok) setMyBooks(await booksRes.json());
@@ -53,11 +81,10 @@ export default function Dashboard() {
   };
 
   const deleteBook = async (bookId: string) => {
-    const token = localStorage.getItem("token");
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     const res = await fetch(`${apiUrl}/books/${bookId}`, {
       method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { "x-clerk-id": clerkUser?.id || "" },
     });
     if (res.ok) {
       setMyBooks((prev) => prev.filter((b) => b._id !== bookId));
@@ -66,11 +93,13 @@ export default function Dashboard() {
   };
 
   const updateOrderStatus = async (txId: string, status: string) => {
-    const token = localStorage.getItem("token");
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     const res = await fetch(`${apiUrl}/transactions/${txId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      headers: { 
+        "Content-Type": "application/json",
+        "x-clerk-id": clerkUser?.id || "" 
+      },
       body: JSON.stringify({ status }),
     });
     if (res.ok) {
@@ -80,22 +109,21 @@ export default function Dashboard() {
   };
 
   const markNotifRead = async (id: string) => {
-    const token = localStorage.getItem("token");
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     await fetch(`${apiUrl}/notifications/${id}`, {
       method: "PUT",
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { "x-clerk-id": clerkUser?.id || "" },
     });
     setNotifications((prev) => prev.map((n) => (n._id === id ? { ...n, is_read: true } : n)));
   };
 
-  if (authLoading || loading) {
+  if (!authLoaded || loading) {
     return <div className="container mx-auto px-4 py-16 text-center"><p className="text-muted-foreground">Loading Dashboard...</p></div>;
   }
 
-  if (!user) return null;
+  if (!isSignedIn) return null;
 
-  const currentUserId = (user as any)._id;
+  const currentUserId = mongoUser?._id;
   const totalEarned = myBooks.reduce((sum, b) => sum + (b.price ?? 0), 0);
   const incomingOrders = transactions.filter((t) => t.seller?._id === currentUserId);
   const myPurchases = transactions.filter((t) => t.buyer?._id === currentUserId);
@@ -103,9 +131,14 @@ export default function Dashboard() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8 text-center md:text-left">
-        <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground">User Dashboard</h1>
-        <p className="mt-1 text-muted-foreground">Manage your books and track your earnings.</p>
+      <div className="mb-8 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground">Welcome, {clerkUser?.firstName || "Reader"}!</h1>
+          <p className="mt-1 text-muted-foreground">Manage your books and track your activity.</p>
+        </div>
+        <Link href="/add-listing">
+          <Button className="rounded-full px-6">List a New Book</Button>
+        </Link>
       </div>
 
       <div className="mb-8 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

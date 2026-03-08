@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
@@ -5,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { BookOpen, Star, ShoppingCart, ArrowLeftRight } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { useUser } from "@clerk/nextjs";
 import BuyDialog from "./BuyDialog";
 
 interface BookCardProps {
@@ -25,15 +27,15 @@ interface BookCardProps {
 
 const BookCard = ({ _id, title, author, price, is_swap, condition, category, image_url, user: seller }: BookCardProps) => {
   const [buyOpen, setBuyOpen] = useState(false);
-  const { user } = useAuth();
+  const { isSignedIn } = useUser();
   const router = useRouter();
 
   const handleAction = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
 
-    if (!user) {
-      router.push("/auth");
+    if (!isSignedIn) {
+      router.push("/sign-in");
       return;
     }
 
@@ -83,7 +85,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                 {title}
               </h3>
               <p className="text-xs text-muted-foreground line-clamp-1">by {author}</p>
-              {seller && <p className="text-[10px] text-muted-foreground mt-1">Seller: {seller.username}</p>}
+              {seller && <p className="text-[10px] text-muted-foreground mt-1 text-xs">Seller: {seller.username}</p>}
             </div>
 
             <div className="mt-3 flex items-center justify-between border-t pt-2">

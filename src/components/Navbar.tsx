@@ -3,26 +3,29 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { BookOpen, Plus, User, LogOut, Menu, X, ShoppingBag, LayoutDashboard } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
+import { BookOpen, Plus, User, Menu, X, ShoppingBag, LayoutDashboard } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { 
+  SignInButton, 
+  UserButton, 
+  Show,
+  useAuth 
+} from "@clerk/nextjs";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { isSignedIn } = useAuth();
   const pathname = usePathname();
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleLogout = () => {
-    logout();
-    setMobileOpen(false);
-    router.push("/");
-  };
-
   const handleProtectedClick = (path: string) => {
-    if (!user) {
-      router.push("/auth");
+    if (!isSignedIn) {
+      // If not signed in, we can either redirect to a sign-in page 
+      // or just open the sign-in modal if we prefer.
+      // Redirecting to /auth is what caused the confusion before.
+      // We'll use router.push with a clerk path or just rely on middleware.
+      router.push("/sign-in"); 
     } else {
       router.push(path);
     }
@@ -78,41 +81,24 @@ const Navbar = () => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
-          <div className="hidden items-center gap-2 md:flex">
-            {user ? (
-              <>
-                <Button 
-                  size="sm" 
-                  className="rounded-full bg-primary px-5 font-semibold hover:shadow-md transition-all"
-                  onClick={() => router.push("/add-listing")}
-                >
-                  <Plus className="mr-1.5 h-4 w-4" /> List a Book
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="rounded-full hover:bg-accent transition-colors"
-                  onClick={() => router.push("/dashboard")}
-                >
-                  <User className="h-5 w-5 text-foreground" />
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="rounded-full hover:text-destructive transition-colors" 
-                  onClick={handleLogout}
-                >
-                  <LogOut className="h-4 w-4" />
-                </Button>
-              </>
-            ) : (
+          <div className="hidden items-center gap-4 md:flex">
+            <Show when="signed-in">
               <Button 
-                className="rounded-full px-6 font-semibold"
-                onClick={() => router.push("/auth")}
+                size="sm" 
+                className="rounded-full bg-primary px-5 font-semibold hover:shadow-md transition-all"
+                onClick={() => router.push("/add-listing")}
               >
-                Sign In
+                <Plus className="mr-1.5 h-4 w-4" /> List a Book
               </Button>
-            )}
+              <UserButton afterSignOutUrl="/" />
+            </Show>
+            <Show when="signed-out">
+              <SignInButton mode="modal">
+                <Button className="rounded-full px-6 font-semibold">
+                  Sign In
+                </Button>
+              </SignInButton>
+            </Show>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -162,31 +148,19 @@ const Navbar = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.3 }}
               >
-                {user ? (
-                  <div className="grid grid-cols-2 gap-3 pt-2">
-                    <Button 
-                      variant="outline" 
-                      className="w-full rounded-xl py-6"
-                      onClick={() => router.push("/dashboard")}
-                    >
-                      <User className="mr-2 h-4 w-4" /> Profile
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      className="w-full rounded-xl py-6 text-destructive hover:bg-destructive/10"
-                      onClick={handleLogout}
-                    >
-                      <LogOut className="mr-2 h-4 w-4" /> Logout
-                    </Button>
+                <Show when="signed-in">
+                  <div className="flex items-center justify-between p-2">
+                    <span className="text-sm font-medium text-muted-foreground">Account</span>
+                    <UserButton afterSignOutUrl="/" />
                   </div>
-                ) : (
-                  <Button 
-                    className="w-full rounded-xl py-6 text-lg font-bold"
-                    onClick={() => router.push("/auth")}
-                  >
-                    Sign In
-                  </Button>
-                )}
+                </Show>
+                <Show when="signed-out">
+                  <SignInButton mode="modal">
+                    <Button className="w-full rounded-xl py-6 text-lg font-bold">
+                      Sign In
+                    </Button>
+                  </SignInButton>
+                </Show>
               </motion.div>
             </div>
           </motion.div>

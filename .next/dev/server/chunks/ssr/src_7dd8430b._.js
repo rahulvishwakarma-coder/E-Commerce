@@ -391,7 +391,7 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useAuth.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@clerk/shared/dist/runtime/react/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-toast.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/dialog.tsx [app-ssr] (ecmascript)");
@@ -415,7 +415,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 ;
 const BuyDialog = ({ open, onOpenChange, book })=>{
-    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { isLoaded, isSignedIn, user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUser"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const { toast } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$toast$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useToast"])();
     const [submitting, setSubmitting] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -434,8 +434,8 @@ const BuyDialog = ({ open, onOpenChange, book })=>{
             }));
     };
     const handleSubmit = async ()=>{
-        if (!user) {
-            router.push("/auth");
+        if (!isLoaded || !isSignedIn) {
+            router.push("/sign-in");
             return;
         }
         if (!form.address_line || !form.city || !form.state || !form.pincode || !form.phone) {
@@ -448,12 +448,12 @@ const BuyDialog = ({ open, onOpenChange, book })=>{
         }
         setSubmitting(true);
         try {
-            const token = localStorage.getItem("token");
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`, {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+            const res = await fetch(`${apiUrl}/transactions`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${token}`
+                    "x-clerk-id": user.id
                 },
                 body: JSON.stringify({
                     bookId: book.id,
@@ -880,8 +880,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$star$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Star$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/star.js [app-ssr] (ecmascript) <export default as Star>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$cart$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingCart$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shopping-cart.js [app-ssr] (ecmascript) <export default as ShoppingCart>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$arrow$2d$left$2d$right$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ArrowLeftRight$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/arrow-left-right.js [app-ssr] (ecmascript) <export default as ArrowLeftRight>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useAuth.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@clerk/shared/dist/runtime/react/index.mjs [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$BuyDialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/BuyDialog.tsx [app-ssr] (ecmascript)");
+"use client";
 ;
 ;
 ;
@@ -894,13 +895,13 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$BuyDial
 ;
 const BookCard = ({ _id, title, author, price, is_swap, condition, category, image_url, user: seller })=>{
     const [buyOpen, setBuyOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const { user } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { isSignedIn } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$shared$2f$dist$2f$runtime$2f$react$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useUser"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRouter"])();
     const handleAction = (e)=>{
         e.preventDefault();
         e.stopPropagation();
-        if (!user) {
-            router.push("/auth");
+        if (!isSignedIn) {
+            router.push("/sign-in");
             return;
         }
         setBuyOpen(true);
@@ -936,7 +937,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                     loading: "lazy"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 55,
+                                    lineNumber: 57,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "flex h-full w-full items-center justify-center bg-accent/50",
@@ -944,12 +945,12 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                         className: "h-10 w-10 text-primary/30"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/BookCard.tsx",
-                                        lineNumber: 63,
+                                        lineNumber: 65,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 62,
+                                    lineNumber: 64,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -960,7 +961,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                             children: "Swap"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 69,
+                                            lineNumber: 71,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$badge$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Badge"], {
@@ -969,19 +970,19 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                             children: condition
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 73,
+                                            lineNumber: 75,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 67,
+                                    lineNumber: 69,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/BookCard.tsx",
-                            lineNumber: 53,
+                            lineNumber: 55,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["CardContent"], {
@@ -995,7 +996,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                             children: category
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 81,
+                                            lineNumber: 83,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1003,7 +1004,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                             children: title
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 82,
+                                            lineNumber: 84,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1014,24 +1015,24 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 85,
+                                            lineNumber: 87,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         seller && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                            className: "text-[10px] text-muted-foreground mt-1",
+                                            className: "text-[10px] text-muted-foreground mt-1 text-xs",
                                             children: [
                                                 "Seller: ",
                                                 seller.username
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 86,
+                                            lineNumber: 88,
                                             columnNumber: 26
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 80,
+                                    lineNumber: 82,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1045,7 +1046,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                                     children: "Price"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/BookCard.tsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 93,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1053,13 +1054,13 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                                     children: is_swap ? "Trade Only" : `₹${price}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/BookCard.tsx",
-                                                    lineNumber: 92,
+                                                    lineNumber: 94,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 90,
+                                            lineNumber: 92,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1069,20 +1070,20 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                                     className: "h-2.5 w-2.5 fill-amber-500 text-amber-500"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/BookCard.tsx",
-                                                    lineNumber: 97,
+                                                    lineNumber: 99,
                                                     columnNumber: 17
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 "5.0"
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/BookCard.tsx",
-                                            lineNumber: 96,
+                                            lineNumber: 98,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Button"], {
@@ -1095,7 +1096,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                                 className: "mr-1.5 h-3.5 w-3.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/BookCard.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 115,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Request Swap"
@@ -1106,7 +1107,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                                 className: "mr-1.5 h-3.5 w-3.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/BookCard.tsx",
-                                                lineNumber: 118,
+                                                lineNumber: 120,
                                                 columnNumber: 19
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             "Buy Now"
@@ -1114,24 +1115,24 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                                     }, void 0, true)
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/BookCard.tsx",
-                                    lineNumber: 102,
+                                    lineNumber: 104,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/BookCard.tsx",
-                            lineNumber: 79,
+                            lineNumber: 81,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/BookCard.tsx",
-                    lineNumber: 52,
+                    lineNumber: 54,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/BookCard.tsx",
-                lineNumber: 45,
+                lineNumber: 47,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             seller && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$BuyDialog$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1146,7 +1147,7 @@ const BookCard = ({ _id, title, author, price, is_swap, condition, category, ima
                 }
             }, void 0, false, {
                 fileName: "[project]/src/components/BookCard.tsx",
-                lineNumber: 128,
+                lineNumber: 130,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         ]

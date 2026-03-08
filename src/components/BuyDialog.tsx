@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "@/hooks/useAuth";
+import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import {
@@ -27,7 +27,7 @@ interface BuyDialogProps {
 }
 
 const BuyDialog = ({ open, onOpenChange, book }: BuyDialogProps) => {
-  const { user } = useAuth();
+  const { isLoaded, isSignedIn, user } = useUser();
   const router = useRouter();
   const { toast } = useToast();
   const [submitting, setSubmitting] = useState(false);
@@ -45,8 +45,8 @@ const BuyDialog = ({ open, onOpenChange, book }: BuyDialogProps) => {
   };
 
   const handleSubmit = async () => {
-    if (!user) {
-      router.push("/auth");
+    if (!isLoaded || !isSignedIn) {
+      router.push("/sign-in");
       return;
     }
 
@@ -58,17 +58,17 @@ const BuyDialog = ({ open, onOpenChange, book }: BuyDialogProps) => {
     setSubmitting(true);
 
     try {
-      const token = localStorage.getItem("token");
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/transactions`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+      const res = await fetch(`${apiUrl}/transactions`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          "x-clerk-id": user.id,
         },
         body: JSON.stringify({
           bookId: book.id,
           sellerId: book.sellerId,
-          type: "purchase", // or "swap" based on context
+          type: "purchase",
           paymentMethod,
           address_line: form.address_line,
           city: form.city,

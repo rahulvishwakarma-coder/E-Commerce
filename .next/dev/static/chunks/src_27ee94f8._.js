@@ -739,16 +739,16 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navi
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$book$2d$open$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__BookOpen$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/book-open.js [app-client] (ecmascript) <export default as BookOpen>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/plus.js [app-client] (ecmascript) <export default as Plus>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/user.js [app-client] (ecmascript) <export default as User>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/log-out.js [app-client] (ecmascript) <export default as LogOut>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as X>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$bag$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingBag$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shopping-bag.js [app-client] (ecmascript) <export default as ShoppingBag>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$layout$2d$dashboard$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LayoutDashboard$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/layout-dashboard.js [app-client] (ecmascript) <export default as LayoutDashboard>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/useAuth.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/components/AnimatePresence/index.mjs [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@clerk/react/dist/index.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$chunk$2d$4WNQKASH$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@clerk/react/dist/chunk-4WNQKASH.mjs [app-client] (ecmascript) <locals>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/@clerk/nextjs/dist/esm/index.js [app-client] (ecmascript) <locals>");
 ;
 var _s = __turbopack_context__.k.signature();
 "use client";
@@ -761,18 +761,13 @@ var _s = __turbopack_context__.k.signature();
 ;
 const Navbar = ()=>{
     _s();
-    const { user, logout } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"])();
+    const { isSignedIn } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$chunk$2d$4WNQKASH$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useAuth"])();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [mobileOpen, setMobileOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const handleLogout = ()=>{
-        logout();
-        setMobileOpen(false);
-        router.push("/");
-    };
     const handleProtectedClick = (path)=>{
-        if (!user) {
-            router.push("/auth");
+        if (!isSignedIn) {
+            router.push("/sign-in");
         } else {
             router.push(path);
         }
@@ -794,7 +789,7 @@ const Navbar = ()=>{
                 className: "h-4 w-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 39,
+                lineNumber: 38,
                 columnNumber: 54
             }, ("TURBOPACK compile-time value", void 0)),
             protected: false
@@ -806,7 +801,7 @@ const Navbar = ()=>{
                 className: "h-4 w-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 40,
+                lineNumber: 39,
                 columnNumber: 55
             }, ("TURBOPACK compile-time value", void 0)),
             protected: true
@@ -818,7 +813,7 @@ const Navbar = ()=>{
                 className: "h-4 w-4"
             }, void 0, false, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 41,
+                lineNumber: 40,
                 columnNumber: 52
             }, ("TURBOPACK compile-time value", void 0)),
             protected: true
@@ -840,12 +835,12 @@ const Navbar = ()=>{
                                     className: "h-6 w-6 text-primary-foreground"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 49,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 49,
+                                lineNumber: 48,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -853,13 +848,13 @@ const Navbar = ()=>{
                                 children: "BookBazzar"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 52,
+                                lineNumber: 51,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 48,
+                        lineNumber: 47,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -879,93 +874,87 @@ const Navbar = ()=>{
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 68,
                                         columnNumber: 17
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, link.path, true, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 60,
+                                lineNumber: 59,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 58,
+                        lineNumber: 57,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center gap-2",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "hidden items-center gap-2 md:flex",
-                                children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            size: "sm",
-                                            className: "rounded-full bg-primary px-5 font-semibold hover:shadow-md transition-all",
-                                            onClick: ()=>router.push("/add-listing"),
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
-                                                    className: "mr-1.5 h-4 w-4"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/Navbar.tsx",
-                                                    lineNumber: 89,
-                                                    columnNumber: 19
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                " List a Book"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 84,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "ghost",
-                                            size: "icon",
-                                            className: "rounded-full hover:bg-accent transition-colors",
-                                            onClick: ()=>router.push("/dashboard"),
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
-                                                className: "h-5 w-5 text-foreground"
+                                className: "hidden items-center gap-4 md:flex",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Show"], {
+                                        when: "signed-in",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                size: "sm",
+                                                className: "rounded-full bg-primary px-5 font-semibold hover:shadow-md transition-all",
+                                                onClick: ()=>router.push("/add-listing"),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$plus$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Plus$3e$__["Plus"], {
+                                                        className: "mr-1.5 h-4 w-4"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/components/Navbar.tsx",
+                                                        lineNumber: 87,
+                                                        columnNumber: 17
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    " List a Book"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/components/Navbar.tsx",
+                                                lineNumber: 82,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$chunk$2d$4WNQKASH$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["UserButton"], {
+                                                afterSignOutUrl: "/"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/Navbar.tsx",
-                                                lineNumber: 97,
-                                                columnNumber: 19
+                                                lineNumber: 89,
+                                                columnNumber: 15
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/Navbar.tsx",
+                                        lineNumber: 81,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Show"], {
+                                        when: "signed-out",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["SignInButton"], {
+                                            mode: "modal",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                className: "rounded-full px-6 font-semibold",
+                                                children: "Sign In"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/Navbar.tsx",
+                                                lineNumber: 93,
+                                                columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 91,
-                                            columnNumber: 17
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "ghost",
-                                            size: "icon",
-                                            className: "rounded-full hover:text-destructive transition-colors",
-                                            onClick: handleLogout,
-                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
-                                                className: "h-4 w-4"
-                                            }, void 0, false, {
-                                                fileName: "[project]/src/components/Navbar.tsx",
-                                                lineNumber: 105,
-                                                columnNumber: 19
-                                            }, ("TURBOPACK compile-time value", void 0))
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 99,
-                                            columnNumber: 17
+                                            lineNumber: 92,
+                                            columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, void 0, true) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                    className: "rounded-full px-6 font-semibold",
-                                    onClick: ()=>router.push("/auth"),
-                                    children: "Sign In"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 109,
-                                    columnNumber: 15
-                                }, ("TURBOPACK compile-time value", void 0))
-                            }, void 0, false, {
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Navbar.tsx",
+                                        lineNumber: 91,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 81,
+                                lineNumber: 80,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -977,30 +966,30 @@ const Navbar = ()=>{
                                     className: "h-6 w-6"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 107,
                                     columnNumber: 27
                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                     className: "h-6 w-6"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 107,
                                     columnNumber: 55
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 119,
+                                lineNumber: 101,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 80,
+                        lineNumber: 79,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 46,
+                lineNumber: 45,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$components$2f$AnimatePresence$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AnimatePresence"], {
@@ -1043,19 +1032,19 @@ const Navbar = ()=>{
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/Navbar.tsx",
-                                        lineNumber: 147,
+                                        lineNumber: 129,
                                         columnNumber: 19
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, link.path, false, {
                                     fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 141,
+                                    lineNumber: 123,
                                     columnNumber: 17
                                 }, ("TURBOPACK compile-time value", void 0))),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
                                 className: "my-2 border-muted"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 158,
+                                lineNumber: 140,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["motion"].div, {
@@ -1070,92 +1059,92 @@ const Navbar = ()=>{
                                 transition: {
                                     delay: 0.3
                                 },
-                                children: user ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "grid grid-cols-2 gap-3 pt-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "outline",
-                                            className: "w-full rounded-xl py-6",
-                                            onClick: ()=>router.push("/dashboard"),
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Show"], {
+                                        when: "signed-in",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between p-2",
                                             children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$user$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__User$3e$__["User"], {
-                                                    className: "mr-2 h-4 w-4"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-sm font-medium text-muted-foreground",
+                                                    children: "Account"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/Navbar.tsx",
-                                                    lineNumber: 172,
-                                                    columnNumber: 23
+                                                    lineNumber: 149,
+                                                    columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)),
-                                                " Profile"
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$chunk$2d$4WNQKASH$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["UserButton"], {
+                                                    afterSignOutUrl: "/"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/components/Navbar.tsx",
+                                                    lineNumber: 150,
+                                                    columnNumber: 21
+                                                }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 167,
-                                            columnNumber: 21
-                                        }, ("TURBOPACK compile-time value", void 0)),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                            variant: "ghost",
-                                            className: "w-full rounded-xl py-6 text-destructive hover:bg-destructive/10",
-                                            onClick: handleLogout,
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$log$2d$out$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__LogOut$3e$__["LogOut"], {
-                                                    className: "mr-2 h-4 w-4"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/Navbar.tsx",
-                                                    lineNumber: 179,
-                                                    columnNumber: 23
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                " Logout"
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/components/Navbar.tsx",
-                                            lineNumber: 174,
-                                            columnNumber: 21
+                                            lineNumber: 148,
+                                            columnNumber: 19
                                         }, ("TURBOPACK compile-time value", void 0))
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 166,
-                                    columnNumber: 19
-                                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                    className: "w-full rounded-xl py-6 text-lg font-bold",
-                                    onClick: ()=>router.push("/auth"),
-                                    children: "Sign In"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/Navbar.tsx",
-                                    lineNumber: 183,
-                                    columnNumber: 19
-                                }, ("TURBOPACK compile-time value", void 0))
-                            }, void 0, false, {
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Navbar.tsx",
+                                        lineNumber: 147,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$nextjs$2f$dist$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Show"], {
+                                        when: "signed-out",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["SignInButton"], {
+                                            mode: "modal",
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                                className: "w-full rounded-xl py-6 text-lg font-bold",
+                                                children: "Sign In"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/Navbar.tsx",
+                                                lineNumber: 155,
+                                                columnNumber: 21
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/Navbar.tsx",
+                                            lineNumber: 154,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/Navbar.tsx",
+                                        lineNumber: 153,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 160,
+                                lineNumber: 142,
                                 columnNumber: 15
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 139,
+                        lineNumber: 121,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, void 0, false, {
                     fileName: "[project]/src/components/Navbar.tsx",
-                    lineNumber: 133,
+                    lineNumber: 115,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 131,
+                lineNumber: 113,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/Navbar.tsx",
-        lineNumber: 45,
+        lineNumber: 44,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(Navbar, "2ic1jzcqlBJ0hKLeMt4rIL88Jpg=", false, function() {
+_s(Navbar, "TXNFQXWoBFLpGkiKX4wAV3u/l5k=", false, function() {
     return [
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$useAuth$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAuth"],
+        __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$clerk$2f$react$2f$dist$2f$chunk$2d$4WNQKASH$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["useAuth"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"],
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/middleware.ts"],"sourcesContent":["import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';\r\n\r\nconst isPublicRoute = createRouteMatcher([\r\n  '/',\r\n  '/marketplace(.*)',\r\n  '/sign-in(.*)',\r\n  '/sign-up(.*)',\r\n  '/api/auth/sync', // Allow user sync api publicly to be called from client\r\n  '/api/(.*)'       // Allow API access or handle protection inside API controllers\r\n]);\r\n\r\nexport default clerkMiddleware(async (auth, request) => {\r\n  if (!isPublicRoute(request)) {\r\n    await auth.protect();\r\n  }\r\n});\r\n\r\nexport const config = {\r\n  matcher: [\r\n    // Skip Next.js internals and all static files, unless found in search params\r\n    '/((?!_next|[^?]*\\\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)',\r\n    // Always run for API routes\r\n    '/(api|trpc)(.*)',\r\n  ],\r\n};\r\n"],"names":[],"mappings":";;;;;;AAAA;AAAA;;AAEA,MAAM,gBAAgB,IAAA,wMAAkB,EAAC;IACvC;IACA;IACA;IACA;IACA;IACA,YAAkB,+DAA+D;CAClF;uCAEc,IAAA,wMAAe,EAAC,OAAO,MAAM;IAC1C,IAAI,CAAC,cAAc,UAAU;QAC3B,MAAM,KAAK,OAAO;IACpB;AACF;AAEO,MAAM,SAAS;IACpB,SAAS;QACP,6EAA6E;QAC7E;QACA,4BAA4B;QAC5B;KACD;AACH"}}]
+}

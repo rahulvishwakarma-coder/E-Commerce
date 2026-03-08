@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/useAuth";
 import { useState } from "react";
+import { SyncUser } from "./SyncUser";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -14,6 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <AuthProvider>
+          <SyncUser />
           {children}
           <Toaster />
           <Sonner />
