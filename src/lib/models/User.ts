@@ -7,6 +7,8 @@ export interface IUser extends Document {
   password?: string;
   avatar_url?: string;
   bio?: string;
+  resetPasswordToken?: string;
+  resetPasswordExpires?: Date;
   created_at: Date;
   comparePassword: (password: string) => Promise<boolean>;
 }
@@ -18,6 +20,8 @@ const UserSchema: Schema = new Schema(
     password: { type: String, required: true },
     avatar_url: { type: String, default: "" },
     bio: { type: String, default: "" },
+    resetPasswordToken: { type: String },
+    resetPasswordExpires: { type: Date },
   },
   { timestamps: { createdAt: "created_at", updatedAt: "updated_at" } }
 );
