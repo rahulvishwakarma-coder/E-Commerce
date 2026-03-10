@@ -1,4 +1,4 @@
 // @ts-nocheck
-import app from "@backend/server.js";
+import app from "../backend/src/server.js";
 
 export default app;

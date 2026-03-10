@@ -12,12 +12,15 @@ const nextConfig = {
   },
   serverExternalPackages: ['mongoose', 'bcryptjs'],
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*', // Proxy to Backend
-      },
-    ];
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/api/:path*',
+          destination: 'http://localhost:5000/api/:path*', // Proxy to Backend in development
+        },
+      ];
+    }
+    return [];
   },
 };
 
