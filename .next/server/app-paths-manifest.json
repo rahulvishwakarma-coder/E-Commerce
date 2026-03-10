@@ -1,11 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/auth/page": "app/auth/page.js",
-  "/sign-in/[[...sign-in]]/page": "app/sign-in/[[...sign-in]]/page.js",
-  "/add-listing/page": "app/add-listing/page.js",
-  "/marketplace/page": "app/marketplace/page.js",
-  "/auth/reset-password/page": "app/auth/reset-password/page.js",
   "/page": "app/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/sign-up/[[...sign-up]]/page": "app/sign-up/[[...sign-up]]/page.js"
+  "/add-listing/page": "app/add-listing/page.js",
+  "/marketplace/page": "app/marketplace/page.js"
 }
