@@ -5,25 +5,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7fa24dfe5423cd2f6eaa638452da478142ab3f1df9": {
@@ -31,25 +16,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7f11a4396735567cad18e08dc1644f4f9aa397b17c": {
@@ -57,25 +27,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7f12b55352228b0aaff01cbf0efb450293f652a4f1": {
@@ -83,25 +38,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7f77c356b8f56d88f2a305354f72ceb02261892f09": {
@@ -109,25 +49,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7f8427e78282c7a202a94da2602292c4b9db7bfc0b": {
@@ -135,25 +60,10 @@
         "app/page": {
           "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Cserver%5C%5Ckeyless-custom-headers.js%22%2C%5B%5B%227fa0c0f516e5a7f03907e17d9ea38946463c6b4d61%22%2C%22formatMetadataHeaders%22%5D%2C%5B%227fa24dfe5423cd2f6eaa638452da478142ab3f1df9%22%2C%22collectKeylessMetadata%22%5D%5D%5D%2C%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Ckeyless-actions.js%22%2C%5B%5B%227f11a4396735567cad18e08dc1644f4f9aa397b17c%22%2C%22syncKeylessConfigAction%22%5D%2C%5B%227f12b55352228b0aaff01cbf0efb450293f652a4f1%22%2C%22detectKeylessEnvDriftAction%22%5D%2C%5B%227f77c356b8f56d88f2a305354f72ceb02261892f09%22%2C%22deleteKeylessAction%22%5D%2C%5B%227f8427e78282c7a202a94da2602292c4b9db7bfc0b%22%2C%22createOrReadKeylessAction%22%5D%5D%5D%5D&__client_imported__=!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "rsc",
-        "app/add-listing/page": "rsc",
-        "app/marketplace/page": "rsc",
-        "app/dashboard/page": "rsc"
+        "app/page": "rsc"
       }
     },
     "7fc8e3e8329e5bb25663713f5f284ff80026382e11": {
@@ -161,25 +71,10 @@
         "app/page": {
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions.js%22%2C%5B%5B%227fc8e3e8329e5bb25663713f5f284ff80026382e11%22%2C%22invalidateCacheAction%22%5D%5D%5D%5D&__client_imported__=true!",
           "async": false
-        },
-        "app/add-listing/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions.js%22%2C%5B%5B%227fc8e3e8329e5bb25663713f5f284ff80026382e11%22%2C%22invalidateCacheAction%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/marketplace/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions.js%22%2C%5B%5B%227fc8e3e8329e5bb25663713f5f284ff80026382e11%22%2C%22invalidateCacheAction%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        },
-        "app/dashboard/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22D%3A%5C%5CBookbazzar%20nextjs%5C%5Cnode_modules%5C%5C%40clerk%5C%5Cnextjs%5C%5Cdist%5C%5Cesm%5C%5Capp-router%5C%5Cserver-actions.js%22%2C%5B%5B%227fc8e3e8329e5bb25663713f5f284ff80026382e11%22%2C%22invalidateCacheAction%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
         }
       },
       "layer": {
-        "app/page": "action-browser",
-        "app/add-listing/page": "action-browser",
-        "app/marketplace/page": "action-browser",
-        "app/dashboard/page": "action-browser"
+        "app/page": "action-browser"
       }
     }
   },
