@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import app from '../../../backend/src/server';
+import app from '@backend/server';
 
 export const config = {
   api: {
     externalResolver: true,
-    bodyParser: false, // Express handles body parsing
+    bodyParser: false,
   },
 };
 
