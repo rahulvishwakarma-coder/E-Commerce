@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { MapPin, CreditCard, Banknote, Loader2 } from "lucide-react";
 import { CartItem } from "@/hooks/useCart";
+import { loadRazorpayScript } from "@/lib/razorpay";
 
 interface CheckoutDialogProps {
   open: boolean;
@@ -36,12 +37,49 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
     phone: "",
   });
 
+  const subtotal = cartItems.reduce((acc, item) => acc + (item.price || 0), 0);
+  const shipping = cartItems.length > 0 ? 40 : 0;
+  const totalAmount = subtotal + shipping;
+
   const handleChange = (field: string, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
   };
 
+  const processTransactions = async () => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+    
+    // Process each item in the cart as a separate transaction
+    const promises = cartItems.map((item) => 
+      fetch(`${apiUrl}/transactions`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-clerk-id": user?.id || "",
+        },
+        body: JSON.stringify({
+          bookId: item._id,
+          sellerId: item.sellerId,
+          type: item.is_swap ? "swap" : "purchase",
+          paymentMethod,
+          address_line: form.address_line,
+          city: form.city,
+          state: form.state,
+          pincode: form.pincode,
+          phone: form.phone,
+        }),
+      })
+    );
+
+    const results = await Promise.all(promises);
+    const failed = results.filter(r => !r.ok);
+    
+    if (failed.length > 0) {
+      throw new Error(`Failed to place some orders.`);
+    }
+  };
+
   const handleSubmit = async () => {
-    if (!isLoaded || !isSignedIn) {
+    if (!isLoaded || !isSignedIn || !user) {
       router.push("/sign-in");
       return;
     }
@@ -55,44 +93,82 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
 
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
-      
-      // Process each item in the cart as a separate transaction
-      const promises = cartItems.map((item) => 
-        fetch(`${apiUrl}/transactions`, {
+
+      if (paymentMethod === "online") {
+        const resScript = await loadRazorpayScript();
+
+        if (!resScript) {
+          toast({ title: "Razorpay SDK failed to load", variant: "destructive" });
+          setSubmitting(false);
+          return;
+        }
+
+        // Create Order on Backend
+        const orderRes = await fetch(`${apiUrl}/payments/order`, {
           method: "POST",
-          headers: {
+          headers: { 
             "Content-Type": "application/json",
-            "x-clerk-id": user.id,
+            "x-clerk-id": user.id 
           },
-          body: JSON.stringify({
-            bookId: item._id,
-            sellerId: item.sellerId,
-            type: item.is_swap ? "swap" : "purchase",
-            paymentMethod,
-            address_line: form.address_line,
-            city: form.city,
-            state: form.state,
-            pincode: form.pincode,
-            phone: form.phone,
-          }),
-        })
-      );
+          body: JSON.stringify({ amount: totalAmount }),
+        });
 
-      const results = await Promise.all(promises);
-      
-      // Check if any failed
-      const failed = results.filter(r => !r.ok);
-      if (failed.length > 0) {
-        throw new Error(`Failed to place ${failed.length} out of ${cartItems.length} orders.`);
+        const orderData = await orderRes.json();
+
+        const options = {
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_SOmxxpTgaLdsdy", // Fallback for now
+          amount: orderData.amount,
+          currency: orderData.currency,
+          name: "BookBazzar",
+          description: `Payment for ${cartItems.length} books`,
+          order_id: orderData.id,
+          handler: async function (response: any) {
+            // Verify Payment on Backend
+            const verifyRes = await fetch(`${apiUrl}/payments/verify`, {
+              method: "POST",
+              headers: { 
+                "Content-Type": "application/json",
+                "x-clerk-id": user.id 
+              },
+              body: JSON.stringify({
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+
+            const verifyData = await verifyRes.json();
+
+            if (verifyData.success) {
+              await processTransactions();
+              toast({ title: "Payment Successful! ✅", description: "Your orders have been placed." });
+              onSuccess();
+              onOpenChange(false);
+            } else {
+              toast({ title: "Payment Verification Failed", variant: "destructive" });
+            }
+            setSubmitting(false);
+          },
+          prefill: {
+            name: user.fullName || "",
+            email: user.primaryEmailAddress?.emailAddress || "",
+            contact: form.phone,
+          },
+          theme: { color: "#3b82f6" },
+        };
+
+        const paymentObject = new (window as any).Razorpay(options);
+        paymentObject.open();
+      } else {
+        // Cash on Delivery
+        await processTransactions();
+        toast({ title: "Orders Placed! ✅", description: "The sellers have been notified." });
+        onSuccess();
+        onOpenChange(false);
+        setSubmitting(false);
       }
-
-      toast({ title: "Orders Placed! ✅", description: "The sellers have been notified. You'll hear back soon." });
-      onSuccess();
-      onOpenChange(false);
-      setForm({ address_line: "", city: "", state: "", pincode: "", phone: "" });
     } catch (error: any) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
-    } finally {
       setSubmitting(false);
     }
   };
