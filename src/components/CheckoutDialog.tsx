@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
@@ -48,7 +48,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
   const processTransactions = async () => {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
     
-    // Process each item in the cart as a separate transaction
+    // NOTE: Consider moving this to a single bulk endpoint on your backend to prevent partial failures!
     const promises = cartItems.map((item) => 
       fetch(`${apiUrl}/transactions`, {
         method: "POST",
@@ -74,11 +74,13 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
     const failed = results.filter(r => !r.ok);
     
     if (failed.length > 0) {
-      throw new Error(`Failed to place some orders.`);
+      throw new Error(`Failed to place some orders. Please contact support.`);
     }
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e?: FormEvent) => {
+    if (e) e.preventDefault(); // Prevent default form submission
+
     if (!isLoaded || !isSignedIn || !user) {
       router.push("/sign-in");
       return;
@@ -98,7 +100,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
         const resScript = await loadRazorpayScript();
 
         if (!resScript) {
-          toast({ title: "Razorpay SDK failed to load", variant: "destructive" });
+          toast({ title: "Razorpay SDK failed to load", description: "Check your internet connection.", variant: "destructive" });
           setSubmitting(false);
           return;
         }
@@ -121,38 +123,43 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
         const orderData = await orderRes.json();
 
         const options = {
-          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "rzp_live_SOmxxpTgaLdsdy", // Fallback for now
+          key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID, // Removed hardcoded fallback!
           amount: orderData.amount,
           currency: orderData.currency,
           name: "BookBazzar",
           description: `Payment for ${cartItems.length} books`,
           order_id: orderData.id,
           handler: async function (response: any) {
-            // Verify Payment on Backend
-            const verifyRes = await fetch(`${apiUrl}/payments/verify`, {
-              method: "POST",
-              headers: { 
-                "Content-Type": "application/json",
-                "x-clerk-id": user.id 
-              },
-              body: JSON.stringify({
-                razorpay_order_id: response.razorpay_order_id,
-                razorpay_payment_id: response.razorpay_payment_id,
-                razorpay_signature: response.razorpay_signature,
-              }),
-            });
+            try {
+              // Verify Payment on Backend
+              const verifyRes = await fetch(`${apiUrl}/payments/verify`, {
+                method: "POST",
+                headers: { 
+                  "Content-Type": "application/json",
+                  "x-clerk-id": user.id 
+                },
+                body: JSON.stringify({
+                  razorpay_order_id: response.razorpay_order_id,
+                  razorpay_payment_id: response.razorpay_payment_id,
+                  razorpay_signature: response.razorpay_signature,
+                }),
+              });
 
-            const verifyData = await verifyRes.json();
+              const verifyData = await verifyRes.json();
 
-            if (verifyData.success) {
-              await processTransactions();
-              toast({ title: "Payment Successful! ✅", description: "Your orders have been placed." });
-              onSuccess();
-              onOpenChange(false);
-            } else {
-              toast({ title: "Payment Verification Failed", variant: "destructive" });
+              if (verifyData.success) {
+                await processTransactions();
+                toast({ title: "Payment Successful! ✅", description: "Your orders have been placed." });
+                onSuccess();
+                onOpenChange(false);
+              } else {
+                toast({ title: "Payment Verification Failed", variant: "destructive" });
+              }
+            } catch (err) {
+               toast({ title: "Error", description: "Failed to process transactions after payment.", variant: "destructive" });
+            } finally {
+               setSubmitting(false);
             }
-            setSubmitting(false);
           },
           prefill: {
             name: user.fullName || "",
@@ -163,6 +170,10 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
         };
 
         const paymentObject = new (window as any).Razorpay(options);
+        paymentObject.on('payment.failed', function () {
+            toast({ title: "Payment Failed", description: "Your transaction could not be completed.", variant: "destructive" });
+            setSubmitting(false);
+        });
         paymentObject.open();
       } else {
         // Cash on Delivery
@@ -173,7 +184,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
         setSubmitting(false);
       }
     } catch (error: any) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      toast({ title: "Error", description: error.message || "An unexpected error occurred.", variant: "destructive" });
       setSubmitting(false);
     }
   };
@@ -186,7 +197,8 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
           <p className="text-sm text-muted-foreground">Complete your order details.</p>
         </DialogHeader>
 
-        <div className="space-y-4 mt-2">
+        {/* Form wrapper added here */}
+        <form onSubmit={handleSubmit} className="space-y-4 mt-2">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <MapPin className="h-4 w-4 text-primary" />
@@ -200,6 +212,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                   value={form.address_line}
                   onChange={(e) => handleChange("address_line", e.target.value)}
                   className="rounded-xl"
+                  required
                 />
               </div>
               <div className="grid grid-cols-2 gap-3">
@@ -210,6 +223,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                     value={form.city}
                     onChange={(e) => handleChange("city", e.target.value)}
                     className="rounded-xl"
+                    required
                   />
                 </div>
                 <div>
@@ -219,6 +233,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                     value={form.state}
                     onChange={(e) => handleChange("state", e.target.value)}
                     className="rounded-xl"
+                    required
                   />
                 </div>
               </div>
@@ -226,19 +241,24 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                 <div>
                   <Label className="text-xs text-muted-foreground">Pincode</Label>
                   <Input
+                    type="text"
+                    inputMode="numeric"
                     placeholder="Pincode"
                     value={form.pincode}
                     onChange={(e) => handleChange("pincode", e.target.value)}
                     className="rounded-xl"
+                    required
                   />
                 </div>
                 <div>
                   <Label className="text-xs text-muted-foreground">Phone</Label>
                   <Input
+                    type="tel"
                     placeholder="Phone number"
                     value={form.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     className="rounded-xl"
+                    required
                   />
                 </div>
               </div>
@@ -256,7 +276,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                   paymentMethod === "cash" ? "border-primary bg-accent" : "border-border"
                 }`}
               >
-                <RadioGroupItem value="cash" />
+                <RadioGroupItem value="cash" id="cash" />
                 <Banknote className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium">Cash</span>
               </label>
@@ -265,7 +285,7 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
                   paymentMethod === "online" ? "border-primary bg-accent" : "border-border"
                 }`}
               >
-                <RadioGroupItem value="online" />
+                <RadioGroupItem value="online" id="online" />
                 <CreditCard className="h-4 w-4 text-muted-foreground" />
                 <span className="text-sm font-medium">Online</span>
               </label>
@@ -273,13 +293,13 @@ const CheckoutDialog = ({ open, onOpenChange, cartItems, onSuccess }: CheckoutDi
           </div>
 
           <Button
-            onClick={handleSubmit}
+            type="submit"
             disabled={submitting}
             className="w-full rounded-full bg-primary text-primary-foreground font-semibold"
           >
-            {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : "Place Order"}
+            {submitting ? <Loader2 className="h-4 w-4 animate-spin" /> : `Pay ₹${totalAmount}`}
           </Button>
-        </div>
+        </form>
       </DialogContent>
     </Dialog>
   );
